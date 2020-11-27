@@ -1,0 +1,64 @@
+
+
+
+
+
+
+<div align="center">
+   
+    <br>
+    <label> Enter Product Id
+    <input required type="text" #userIdRef='ngModel' name="id" [(ngModel)]="id" ngModel class="form-control"></label>
+    <div *ngIf='userIdRef.errors
+                && userIdRef.touched' class="alert alert-danger">
+        <div [hidden]='!userIdRef.errors.required'>
+           please Provide valid product id
+        </div>
+    </div>
+  
+    <input type="button"  id="button" value="search" (click)="getStatus()" class="btn btn-primary" class="form-group"/>
+  </div>
+  <br>
+  <div *ngIf="search" align="center" >
+    <table class="table table-striped" >
+  
+        <thead align="center">
+            <tr>
+                <th>PRODUCT ID</th>
+                <th>COLOR</th>
+                <th>PRICE</th>
+                <th>DIMENSIONS</th>
+                <th>SPECIFICATIONS</th>
+                <th>MANUFACTURE</th>
+                <th>QUANTITY</th>
+                <th>PRODUCT CATEGORY</th>
+                <th>PRODUCTNAME</th>
+                <th>RETAILERID</th>
+            </tr>
+            </thead>
+        
+        <tbody>
+            <tr>
+                <td> {{Product.id}}</td>
+                <td> {{Product.colour}} </td>
+                <td>{{Product.price}}</td>
+                <td> {{Product.dimensions}} </td>
+                <td>{{Product.specifications}}</td>
+                <td> {{Product.manufacture}} </td>
+                <td>{{Product.quantity}}</td>
+                <td>{{Product.productCategory}}</td>
+                <td>{{Product.productName}}</td>
+                <td>{{Product.retailerId}}</td>
+                <td>
+            </tr>
+            
+</tbody>
+    </table>
+    <h2>{{message}}</h2>
+  </div>
+  <!--<div align="center" *ngIf="search" align="center">
+    <h3> Invalid Product ID</h3>
+  </div>-->
+ 
+  <button type="button float-right" id="back"   class="btn btn-primary" routerLink="/home">BACK</button>
+  

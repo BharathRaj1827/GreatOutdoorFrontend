@@ -1,0 +1,128 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-image: url('assets/BackgroundImages/image1.jpg');background-repeat:no-repeat;background-size: 100%;background-position: center;background-size: cover;"  >
+  
+<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    
+    <h3 align="center">ADD ITEMS TO CART</h3>
+  
+  <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+  
+    <div class="form-group">
+  
+        <label>USER ID: </label>
+  
+        <input required minlength="2" type="text" #cartIdRef='ngModel' name="userId" ngModel class="form-control">
+  
+        <div *ngIf='cartIdRef.errors && cartIdRef.touched' class="alert alert-danger">
+  
+            <div [hidden]='!cartIdRef.errors.required'> Provide user id </div>
+  
+        </div>
+    </div>
+  
+  
+  
+    <div class="form-group">
+  
+        <label>CART ID: </label>
+  
+        <input required minlength="2" type="number" #cartIdRef='ngModel' name="cartId" ngModel class="form-control">
+  
+        <div *ngIf='cartIdRef.errors
+                    && cartIdRef.touched' class="alert alert-danger">
+  
+            <div [hidden]='!cartIdRef.errors.required'>
+  
+                Provide Cart Id
+  
+            </div>
+  
+            <div *ngIf='cartIdRef.errors.pattern'>Cart id should be minimum of 2 characters length</div>
+  
+        </div>
+  
+    </div>
+  
+  
+    
+  
+    <div class="form-group">
+  
+        <label>PRODUCT ID: </label>
+  
+        <input required minlength="2" type="number" #productIdRef='ngModel' name="productId" ngModel
+            class="form-control">
+  
+        <div *ngIf='productIdRef.errors
+                    && productIdRef.touched' class="alert alert-danger">
+  
+            <div [hidden]='!productIdRef.errors.required'>
+  
+                Provide Product Id
+  
+            </div>
+  
+            <div *ngIf='productIdRef.errors.pattern'>Product Id should be minimum of 2 characters length</div>
+  
+        </div>
+  
+    </div>
+  
+    <div class="form-group">
+  
+        <label>CART ITEM PRICE: </label>
+  
+        <input required minlength="1" type="number" #cartItemPriceRef='ngModel' name="cartItemPrice" ngModel class="form-control">
+  
+        <div *ngIf='cartItemPriceRef.errors
+                    && cartItemPriceRef.touched' class="alert alert-danger">
+  
+            <div [hidden]='!cartItemPriceRef.errors.required'>
+  
+                Provide Cart item price
+  
+            </div>
+  
+            <div *ngIf='cartItemPriceRef.errors.pattern'>Cart Item price should be minimum of 1 characters length</div>
+  
+        </div>
+  
+    </div>
+
+    <div class="form-group">
+  
+        <label>QUANTITY: </label>
+  
+        <input required minlength="1" type="number" #quantityRef='ngModel' name="quantity" ngModel class="form-control">
+  
+        <div *ngIf='quantityRef.errors
+                    && quantityRef.touched' class="alert alert-danger">
+  
+            <div [hidden]='!quantityRef.errors.required'>
+  
+                Provide Quantity
+  
+            </div>
+  
+            <div *ngIf='quantityRef.errors.pattern'>Quantity should be minimum of 1 characters length</div>
+  
+        </div>
+  
+    </div>
+    <input [disabled]="userForm.invalid" type="submit" value="Add CartItem" class="btn btn-primary">
+  
+  </form>
+  
+<br>
+  <div align="left"> <input type="submit"  routerLink='/home' value="Back" class="btn btn-success">
+  </div>
+ 
+  </div>
+  <div>
+  <h2>{{message}}</h2>
+  </div>
+  
+  

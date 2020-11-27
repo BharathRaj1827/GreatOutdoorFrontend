@@ -1,0 +1,24 @@
+  <div class="container">
+    <h1 align="center">Admin Management System</h1>
+    <nav class="navbar navbar-expand-sm btn-secondary navbar-dark">
+      <a class="navbar-brand" href="">
+      </a>
+      <ul class="nav nav-pills ">
+        <li class="nav-item ">
+          <button class="btn btn-success pull-right"(click) = "salesInput()" >Sales Report</button>&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-success pull-right"(click) = "revenueInput()" >Revenue Report</button>&nbsp;&nbsp;&nbsp;
+        </li>
+        <P><button class="btn btn-success" routerLink='/addproduct'>Add Product<br></button>&nbsp;&nbsp; 
+          <P><button class="btn btn-success" routerLink='/listproduct'>Display All Products<br></button>&nbsp;&nbsp;
+          <P><button class="btn btn-success" routerLink='/getproductbyid'>Get Product By Id<br></button>&nbsp;&nbsp;
+          <P><button class="btn btn-success" routerLink='/searchproductbyproductname'>Search Product By Product Name<br></button>&nbsp;&nbsp;
+          
+         <p> <button class="btn btn-success" routerLink='/searchproductbyproductcategory'>Search Product By Product Category<br></button>&nbsp;&nbsp;
+     
+         <p><button class="btn btn-danger" (click) = "logout()" >Logout</button>&nbsp;&nbsp;
+    </ul>
+    </nav>
+    </div>
+    <router-outlet></router-outlet>

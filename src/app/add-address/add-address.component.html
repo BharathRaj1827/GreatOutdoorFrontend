@@ -1,0 +1,121 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-image: url('assets/BackgroundImages/image3.jpg');background-repeat:no-repeat;background-size: 100%;background-position: center;background-size: cover;"  >
+  
+<div class="container">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    <h3 align="center">Add Address</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>ADDRESS ID: </label>
+
+            <input required minlength="1" type="number" #empIdRef='ngModel' name="addressId" ngModel class="form-control">
+
+            <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empIdRef.errors.required'> Provide Address Id </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>USER ID: </label>
+
+            <input required minlength="1" type="number" #empIdRef='ngModel' name="userId" ngModel class="form-control">
+
+            <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empIdRef.errors.required'> Provide User Id </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>BUILDING NO: </label>
+
+            <input required minlength="1" type="number" #empIdRef='ngModel' name="buildingNo" ngModel class="form-control">
+
+            <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empIdRef.errors.required'> Provide Building Number </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>CITY: </label>
+
+            <input required minlength="6" type="text" #empNameRef='ngModel' name="city" ngModel class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empNameRef.errors.required'>
+
+                    Provide City Name
+
+                </div>
+
+                <div *ngIf='empNameRef.errors.pattern'>Name should be minimum of 4 characters length</div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>STATE: </label>
+
+            <input required minlength="5" length="5" type="text" #empsalRef='ngModel' name="state" ngModel class="form-control">
+
+            <div *ngIf='empsalRef.errors && empsalRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empsalRef.errors.required'> Provide State Name </div>
+
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+
+            <label>PINCODE: </label>
+
+            <input required minlength="6" type="number" #empIdRef='ngModel' name="pincode" ngModel class="form-control">
+
+            <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empIdRef.errors.required'> Provide Pincode </div>
+
+            </div>
+        </div>
+
+       
+        <input [disabled]="userForm.invalid" type="submit" value="Add Address" class="btn btn-primary">
+
+    </form>
+
+    
+<div align="left"> <input type="submit"  routerLink='/home' value="Back" class="btn btn-success">
+    </div>
+</div>
+
+
+
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

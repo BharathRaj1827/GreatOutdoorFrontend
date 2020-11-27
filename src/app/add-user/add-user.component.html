@@ -1,0 +1,90 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-image: url('assets/BackgroundImages/image2.jpg');background-repeat:no-repeat;background-size: 100%;background-position: center;background-size: cover;"  >
+
+<div class="container">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        
+        <h3 align="center">USER REGISTRATION FORM</h3>
+       
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>USER ID: </label>
+
+            <input required minlength="4" type="number" #userIdRef='ngModel' name="userId" ngModel class="form-control">
+
+            <div *ngIf='userIdRef.errors && userIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!userIdRef.errors.required'> Provide Id of minimum length 4  </div>
+
+            </div>
+        </div>
+
+
+
+        
+
+        <div class="form-group">
+
+            <label> PASSWORD: </label>
+
+            <input required minlength="6" type="password" #userpasswordRef='ngModel' pattern="" name="userPassword" ngModel class="form-control">
+
+            <div *ngIf='userpasswordRef.errors && userpasswordRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!userpasswordRef.errors.required'> Provide Password must contain one number,onealphabet,one special character
+                    and size should be at least 8 characters and not more than 14 characters. </div>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>PHONE NUMBER: </label>
+
+            <input required length="10" type="number" #userphoneRef='ngModel' pattern="^((\\+91-?)|0)?[0-9]{10}$" name="userPhoneno" ngModel class="form-control">
+
+            <div *ngIf='userphoneRef.errors && userphoneRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!userphoneRef.errors.required'> Provide Phone Number </div>
+
+                <div *ngIf='userphoneRef.errors.pattern'>Phone number should consists of 10 digits</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>EMAIL: </label>
+
+            <input required minlength="15" type="text" #useremailRef='ngModel' name="userEmail" ngModel
+                class="form-control">
+
+            <div *ngIf='useremailRef.errors
+                        && useremailRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!useremailRef.errors.required'>
+
+                    Provide Email
+
+                </div>
+
+                <div *ngIf='useremailRef.errors.pattern'>Email should be minimum of 15 characters length</div>
+
+            </div>
+
+        </div>
+        <input [disabled]="userForm.invalid" type="submit" value="Add User" class="btn btn-primary">
+
+    </form>
+
+</div></div>
+</body>
+<div>
+    <h2 class="text-success">{{message}}</h2>
+</div>

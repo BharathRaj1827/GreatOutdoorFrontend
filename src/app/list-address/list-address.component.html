@@ -1,0 +1,46 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+    <table class="table table-striped" *ngIf="adrs && adrs.length > 0  else elseBlock">
+        <thead>
+        <tr>
+            <th>ADDRESS ID</th>
+            <th>USER ID</th>
+            <th>BUILDING NUMBER</th>
+            <th>CITY</th>
+            <th>STATE</th>
+            <th>PINCODE</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of adrs">
+                <td> {{e.addressId}} </td>
+                <td> {{e.userId}} </td>
+                <td> {{e.buildingNo}} </td>
+                <td>{{e.city}}</td>
+                <td>{{e.state}} </td>
+                <td> {{e.pincode}}</td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete2(e)>Delete</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=update2(e)>Update</button>
+                </td>
+                <td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no Addresses to display,please add the Address! </h4>
+    </ng-template>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>
+
+
+<div align="right"> <input type="submit"  routerLink='/home' value="Back" class="btn btn-success">
+</div>

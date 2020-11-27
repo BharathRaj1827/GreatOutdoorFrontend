@@ -1,0 +1,54 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body
+    style="background-image: url('assets/BackgroundImages/image2.jpg');background-repeat:no-repeat;background-size: 100%;background-position: center;background-size: cover;">
+
+
+    <div class="container login-container">
+        <div class="row" style='float:center'>
+            <div class="col-md-6 login-form-1">
+                <div class="card-body"></div>
+                <form>
+                    <div class="form-label-group" *ngIf="checkAuthentication0">
+                        <label for="inputName"><b>Admin Name</b></label>
+                        <input type="text" id="inputName" class="form-control" #empNameRef='ngModel'
+                            placeholder="enter admin name" name="aname" [(ngModel)]="adminname" value="" required />
+                        <div *ngIf='empNameRef.errors && empNameRef.touched' class="alert alert-danger">
+                            <div [hidden]='!empNameRef.errors.required'> Provide AdminName </div>
+                        </div>
+                    </div>
+                    <div class="form-label-group" *ngIf="checkAuthentication0">
+                        <label for="inputPassword"><b>Password</b></label>
+                        <input type="password" id="inputPassword" minlength="6" class="form-control"
+                            #userpasswordRef='ngModel' placeholder="enter password" name="apwd"
+                            [(ngModel)]="adminpassword" value="" required />
+                        <div *ngIf='userpasswordRef.errors &&userpasswordRef.touched' class="alert alert-danger">
+                            <div [hidden]='!userpasswordRef.errors.required'> Provide Password </div>
+                            <div *ngIf='userpasswordRef.errors.pattern'>Password should consists of minimun 6 digits
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" *ngIf="checkAuthentication0">
+                        <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase"
+                            (click)='aLogin()'>Login</button>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div *ngIf="checkAuthentication1">
+                Welcome Admin
+            </div>
+        </div>
+        <div *ngIf="checkAuthentication2" class="alert">
+            Not an admin !!
+        </div>
+    </div>
+
+</body>

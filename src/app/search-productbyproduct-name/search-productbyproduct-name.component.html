@@ -1,0 +1,60 @@
+
+
+<div align="center">
+    
+    <br>
+    <label> Enter Product Name
+    <input required type="text" #userIdRef='ngModel' name="productName" [(ngModel)]="productName" ngModel class="form-control"></label>
+    <div *ngIf='userIdRef.errors
+                && userIdRef.touched' class="alert alert-danger">
+        <div [hidden]='!userIdRef.errors.required'>
+          please Provide valid product name
+        </div>
+    </div>
+
+       
+  
+    <input type="button" id="button" value="search" (click)="getStatus()" class="btn btn-primary" class="form-group"/>
+  
+  <br>
+  <div *ngIf="search" align="center" >
+    <table class="table table-striped" >
+  
+        <thead align="center">
+            <tr>
+                <th>PRODUCT ID</th>
+                <th>COLOR</th>
+                <th>PRICE</th>
+                <th>DIMENSIONS</th>
+                <th>SPECIFICATIONS</th>
+                <th>MANUFACTURE</th>
+                <th>QUANTITY</th>
+                <th>PRODUCT CATEGORY</th>
+                <th>PRODUCTNAME</th>
+                <th>RETAILERID</th>
+            </tr>
+            </thead>
+        
+        <tbody>
+            <tr *ngFor="let productlist of Product">
+                 <td> {{productlist.id}}</td>
+                <td> {{productlist.colour}} </td>
+                <td>{{productlist.price}}</td>
+                <td> {{productlist.dimensions}} </td>
+                <td>{{productlist.specifications}}</td>
+                <td> {{productlist.manufacture}} </td>
+                <td>{{productlist.quantity}}</td>
+                <td>{{productlist.productCategory}}</td>
+                <td>{{productlist.productName}}</td>
+                <td>{{productlist.retailerId}}</td>
+                <td>
+            </tr>
+</tbody>
+    </table>
+  </div>
+  <!--<div align="center" *ngIf="search" align="center">
+    <h3> Invalid Product Name</h3>
+  </div>-->
+  <button type="button float-right" id="back"   class="btn btn-primary" routerLink="/home">BACK</button>
+  
+  

@@ -1,0 +1,123 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+    <h3>UPDATE ADDRESS</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onUpdate2(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>ADDRESS ID: </label>
+
+            <input required minlength="1" type="number" [(ngModel)]="obj1.addressId"  #bookIdRef='ngModel'
+                name="addressId" ngModel class="form-control">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>USER ID: </label>
+
+            <input required minlength="1" type="number" [(ngModel)]="obj1.userId" #empNameRef='ngModel' name="userId" ngModel
+                class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empNameRef.errors.required'>
+
+                    Provide UserId
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>BUILDING NO: </label>
+
+            <input required minlength="1" type="number" [(ngModel)]="obj1.buildingNo" #empNameRef='ngModel' name="buildingNo" ngModel
+                class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empNameRef.errors.required'>
+
+                    Provide Building Number
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>CITY: </label>
+
+            <input required minlength="1" type="text" [(ngModel)]="obj1.city" #empsalRef='ngModel' name="city"
+                ngModel class="form-control">
+
+            <div *ngIf='empsalRef.errors && empsalRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empsalRef.errors.required'> Provide City Name </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>STATE: </label>
+
+            <input required length="4" type="text" [(ngModel)]="obj1.state" #empphoneRef='ngModel' name="state" ngModel class="form-control">
+
+            <div *ngIf='empphoneRef.errors && empphoneRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empphoneRef.errors.required'> Provide State Name </div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>PINCODE: </label>
+
+            <input required minlength="1" type="number" [(ngModel)]="obj1.pincode" #empNameRef='ngModel' name="pincode" ngModel
+                class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empNameRef.errors.required'>
+
+                    Provide Pincode
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        
+        <input [disabled]="userForm.invalid" type="submit" value="Edit Address" class="btn btn-primary">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>
+
+
+<div align="left"> <input type="submit"  routerLink='/home' value="Back" class="btn btn-success">
+</div>

@@ -1,0 +1,36 @@
+
+
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+  <table class="table table-striped" *ngIf="products && products.length > 0  else elseBlock">
+        <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Price</th>
+            <th>Product Name</th>
+            <th>Product Type</th>
+            <th>Add To Whishlist</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td>{{p.productId}}</td>
+                <td>{{p.productPrice}}</td>
+                <td>{{p.productName}}</td>
+                <td>{{p.productType}}</td>
+                <td><button type="button" class ="btn btn-large btn-block btn-primary" (click)=add(p.productId)><span class="glyphicon glyphicon-heart">ADD TO WHISHLIST</span></button></td>
+            </tr>
+        </tbody>
+    </table>
+        <ng-template #elseBlock>
+            <h4 align="center"> There are no Products to display,please add the products! </h4>
+        </ng-template>
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>
+
